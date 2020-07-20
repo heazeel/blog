@@ -39,15 +39,17 @@ module.exports = {
   lintOnSave: false,
 
   chainWebpack: (config)=>{
-    const svgRule = config.module.rule("svg");     
-    svgRule.uses.clear();     
-    svgRule
-    .use("svg-sprite-loader")
-    .loader("svg-sprite-loader")
-    .options({ 
-      symbolId: "icon-[name]",
-      include: ["./src/icons"] 
-    });
+    config.module
+      .rule('md')
+      .test(/\.md$/)
+      .use('vue-loader')
+      .loader('vue-loader')
+      .end()
+      .use('vue-markdown-loader')
+      .loader('vue-markdown-loader/lib/markdown-compiler')
+      .options({
+        raw: true
+      })
   },
   configureWebpack: config =>{
     config.resolve = {
@@ -67,19 +69,19 @@ module.exports = {
   // devServer:{type:Object} 3个属性host,port,https
   // 它支持webPack-dev-server的所有选项
   devServer: {
-      port: 8080, // 端口号
-      host: '0.0.0.0',
-      https: false, // https:{type:Boolean}
-      open: true, //配置自动启动浏览器
-      proxy: {
-        '/devApi':{
-          target: "http://www.web-jshtml.cn/productapi/token",
-          changeOrigin: true,
-          pathRewrite:{
-            '^/devApi': ''
-          }
-        }
-      }
+      // port: 8080, // 端口号
+      // host: '0.0.0.0',
+      // https: false, // https:{type:Boolean}
+      // open: true, //配置自动启动浏览器
+      // proxy: {
+      //   '/devApi':{
+      //     target: "http://www.web-jshtml.cn/productapi/token",
+      //     changeOrigin: true,
+      //     pathRewrite:{
+      //       '^/devApi': ''
+      //     }
+      //   }
+      // }
   },
   // devServer: {
   //   open: true, //编译完成是否打开网页

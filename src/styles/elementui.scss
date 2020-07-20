@@ -1,59 +1,31 @@
-.el-submenu .el-menu-item {
-    font-size: 14px;
-    padding-left: 50px !important;
-    &.is-active { background-color: rgba(245, 108, 108, 0.2) !important; }
+.el-collapse{
+  border:0px !important;
 }
-// 修改一级菜单样式
-li.el-submenu {
-    &.is-active.is-opened .el-submenu__title { background-color: $mainCcolor !important; }
+.el-collapse-item__wrap{
+  border:0px !important;
 }
-.el-menu-item-group__title{
-    padding:0px !important;
+.el-collapse-item__header{
+  font-size:1rem !important;
+  border-bottom:0px !important;
+  user-select: none;
+  height: 40px !important;
+  line-height: 40px !important;
 }
-.close {
-    .el-submenu {
-        &.is-opened {
-            > .el-submenu__title {
-                background-color: $mainCcolor !important;
-            }
-        }
-    }
+.el-collapse-item__header:hover{
+  background-color: #f3f3f3;
 }
-.el-menu--vertical {
-    .el-menu { background-color: $mainCcolor !important; }
-    .el-menu-item { line-height: 56px; }
-    .el-menu-item:hover {
-        background-color: $mainCcolor !important;
-    }
-}
-
-/* table 样式*/
-div.el-table {
-    td, th { text-align: center; }
-    th {
-        font-weight: bold;
-        color: #344a5f;
-    }
-    td { font-size: 14px; }
-}
-/* dialog 样式 */
-.el-dialog__body {
-    padding: 30px 47px !important;
-}
-.el-dialog__footer {
-    text-align: center !important;
-    padding-bottom: 50px !important;
-    .el-button {
-        width: 150px;
-        margin: 0 11px !important;
-    }
-}
-
-div.el-form-item { margin-bottom: 22px; }
-
-/* from 样式 */
-.el-form {
-    .el-form-item:last-child {
-        margin-bottom: 0 !important;
-    }
+.el-collapse-item__content{
+  font-size:1rem !important;
+  padding-left: 20px;
+  padding-bottom:0px !important;
+  padding-top:0px;
+  border-left: 1px solid #dbdbdb;
+  user-select: none;
+  div{
+    margin: 5px 0px;
+    cursor:pointer;
+  }
+  div:hover{
+    background-color: #f3f3f3;
+  }
 }
