@@ -5,8 +5,9 @@ $navMenuMin: 64px;
 $layoutHeader: 75px;
 
 // 主颜色
-$mainCcolor: #f56c6c;
+$mainColor: #3D7EFF;
 
+//样式兼容
 @mixin webkit($type, $value){
   -webkit-#{$type}: $value;
   -moz-#{$type}: $value;
@@ -23,6 +24,6 @@ $mainCcolor: #f56c6c;
     line-height: $line-height + px;
   }
   .warp-content {
-      margin-left: $width + px;
+    margin-left: $width + px;
   }
 }

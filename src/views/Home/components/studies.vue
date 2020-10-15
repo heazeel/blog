@@ -6,16 +6,42 @@
           <i class="icon-gengduo"></i>
         </a>
         <div class="slide_operate">
-          <a href="javascript:;" class="top_file" data-top="0" title="置顶" data-mark="48324">
+          <a
+            href="javascript:;"
+            class="top_file"
+            data-top="0"
+            title="置顶"
+            data-mark="48324"
+          >
             <i class="icon-zhiding"></i>
           </a>
-          <a href="javascript:;" data_hide="0" class="hid_file" title="隐藏" data-mark="48324">
+          <a
+            href="javascript:;"
+            data_hide="0"
+            class="hid_file"
+            title="隐藏"
+            data-mark="48324"
+          >
             <i class="icon-eye"></i>
           </a>
-          <a href="javascript:;" class="edit_mark" title="编辑收藏夹" data-mark="48324" data-type="1" data-pro="0">
+          <a
+            href="javascript:;"
+            class="edit_mark"
+            title="编辑收藏夹"
+            data-mark="48324"
+            data-type="1"
+            data-pro="0"
+          >
             <i class="icon-icon_edit"></i>
           </a>
-          <a href="javascript:;" class="cancle_mark" title="删除收藏夹" data-mark="48324" data-type="1" data-pro="0">
+          <a
+            href="javascript:;"
+            class="cancle_mark"
+            title="删除收藏夹"
+            data-mark="48324"
+            data-type="1"
+            data-pro="0"
+          >
             <i class="icon-gr_del"></i>
           </a>
         </div>
@@ -25,15 +51,19 @@
       </a>
       <router-link to="/works">
         <div class="img_wrap">
-          <img :src="item.pic" class="file-ep">
+          <img :src="item.pic" class="file-ep" />
         </div>
         <div class="cl bt">
           <div class="z">
-            <p data-intro=""><i class="icon-Shoucangjia"></i>{{ item.study_title }}</p>
+            <p class="title">{{ item.study_title }}</p>
+            <p class="tag">转载</p>
             <div>
-              <i class="icon-icon_browse" title="浏览量"></i><span>{{ item.view_num }}</span>
-              <i class="icon-inspiration_icon_like_nor" title="点赞量"></i><span>{{ item.like_num }}</span>
-              <i class="icon-tool_icon_collection" title="关注量"></i><span>{{ item.follow_num }}</span>
+              <i class="el-icon-view" title="浏览数"></i
+              ><span>{{ item.view_num }}</span>
+              <i class="el-icon-star-off" title="收藏数"></i
+              ><span>{{ item.follow_num }}</span>
+              <i class="el-icon-apple" title="点赞数"></i
+              ><span>{{ item.like_num }}</span>
             </div>
           </div>
           <p class="y"><span>0</span></p>
@@ -45,17 +75,65 @@
 <script>
 export default {
   name: "studies",
-  data () {
+  data() {
     return {
-      studies:[
-        {"study_title":"JavaScript基础教程","pic":require('../../../assets/home/javascript.jpg'),"view_num":"0","like_num":"0","follow_num":"0"},
-        {"study_title":"CSS3基础教程","pic":require('../../../assets/home/css3.jpg'),"view_num":"0","like_num":"0","follow_num":"0"},
-        {"study_title":"HTML基础教程","pic":require('../../../assets/home/javascript.jpg'),"view_num":"0","like_num":"0","follow_num":"0"},
+      studies: [
+        {
+          study_title: "JavaScript基础教程",
+          pic: require("../../../assets/home/javascript.png"),
+          view_num: "0",
+          follow_num: "0",
+          like_num: "0"
+        },
+        {
+          study_title: "CSS3基础教程",
+          pic: require("../../../assets/home/css3.png"),
+          view_num: "0",
+          follow_num: "0",
+          like_num: "0"
+        },
+        {
+          study_title: "HTML5基础教程",
+          pic: require("../../../assets/home/html5.png"),
+          view_num: "0",
+          follow_num: "0",
+          like_num: "0"
+        },
+        {
+          study_title: "Vue.js基础入门",
+          pic: require("../../../assets/home/vue.png"),
+          view_num: "0",
+          follow_num: "0",
+          like_num: "0"
+        },
+        {
+          study_title: "React.js基础入门",
+          pic: require("../../../assets/home/react.png"),
+          view_num: "0",
+          follow_num: "0",
+          like_num: "0"
+        },
+        {
+          study_title: "Webpack教程",
+          pic: require("../../../assets/home/webpack.jpg"),
+          view_num: "0",
+          follow_num: "0",
+          like_num: "0"
+        }
       ]
-    }
+    };
   }
-}
+};
 </script>
 <style lang="scss" scoped>
-
+li.file {
+  background: url(../../../assets/home/li_bg.png) no-repeat center bottom;
+  background-size: 280px auto;
+}
+li:hover {
+  p.y {
+    background: url(../../../assets/home/wan.png) no-repeat right bottom;
+    background-size: auto 52px;
+  }
+}
 </style>

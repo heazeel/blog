@@ -1,8 +1,8 @@
 <template>
   <div>
-    <studies/>
-    <notes/>
-    <drafts/>
+    <studies />
+    <notes />
+    <drafts />
   </div>
 </template>
 <script>
@@ -18,6 +18,4 @@ export default {
   }
 };
 </script>
-<style lang="scss" scope>
-
-</style>
+<style lang="scss" scope></style>

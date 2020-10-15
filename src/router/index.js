@@ -1,10 +1,10 @@
 import Vue from "vue";
-import VueRouter from "vue-router";;
+import VueRouter from "vue-router";
 
-const originalPush = VueRouter.prototype.push
-   VueRouter.prototype.push = function push(location) {
-   return originalPush.call(this, location).catch(err => err)
-}
+const originalPush = VueRouter.prototype.push;
+VueRouter.prototype.push = function push(location) {
+  return originalPush.call(this, location).catch(err => err);
+};
 
 Vue.use(VueRouter);
 
@@ -17,14 +17,14 @@ const routes = [
   {
     path: "/home",
     name: "Home",
-    hidden:false,
-    redirect: "all",
+    hidden: false,
+    redirect: "studies",
     component: () => import("../views/Home/index.vue"),
-    children:[
+    children: [
       {
         path: "/all",
         name: "all",
-        meta:{
+        meta: {
           name: "全部"
         },
         component: () => import("../views/Home/components/all.vue")
@@ -32,7 +32,7 @@ const routes = [
       {
         path: "/studies",
         name: "studies",
-        meta:{
+        meta: {
           name: "知识点"
         },
         component: () => import("../views/Home/components/studies.vue")
@@ -40,7 +40,7 @@ const routes = [
       {
         path: "/notes",
         name: "notes",
-        meta:{
+        meta: {
           name: "笔记"
         },
         component: () => import("../views/Home/components/notes.vue")
@@ -48,7 +48,7 @@ const routes = [
       {
         path: "/drafts",
         name: "drafts",
-        meta:{
+        meta: {
           name: "草稿箱"
         },
         component: () => import("../views/Home/components/drafts.vue")
@@ -59,7 +59,7 @@ const routes = [
     path: "/works",
     name: "Works",
     hidden: true,
-    redirect: '/artical/A',
+    redirect: "/artical/JS_A",
     component: () => import("../views/works/index.vue"),
     children: [
       {
@@ -68,11 +68,11 @@ const routes = [
         meta: {
           name: "首页"
         },
-        //component: () => import("../markdown/JS/A.md"),
-        component: () => import("../views/works/components/artical.vue"),
+        //component: () => import("../markdown/JS/1.types/A.md"),
+        component: () => import("../views/works/components/artical.vue")
       }
     ]
-  },
+  }
 ];
 
 const router = new VueRouter({

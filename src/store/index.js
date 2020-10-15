@@ -4,8 +4,14 @@ import Vuex from "vuex";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: {},
-  mutations: {},
+  state: {
+    active: 1
+  },
+  mutations: {
+    SET_FILEMENUSTATUS: (state, index) => {
+      state.active = index;
+    }
+  },
   actions: {},
   modules: {}
 });

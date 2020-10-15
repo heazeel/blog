@@ -1,25 +1,22 @@
-// import Vue from 'vue'
-// const context = require.context('../markdown/JS', true, /\.md$/)
-// const lib = [];
-// //key是相对路径名
-// files.keys().forEach(key => {
-//     lib.push(files(key).default.__file);
-// })
-// lib.forEach(elem =>{
-//   // name = elem.split("/");
-//   // realname = name[3];
-//   //console.log(import(elem));
-// })
-// export default lib
-import A from "@/markdown/JS/types/A.md";
-import B from "@/markdown/JS/types/B.md";
-import C from "@/markdown/JS/types/C.md";
-import D from "@/markdown/JS/types/D.md";
-import E from "@/markdown/JS/types/E.md";
-import F from "@/markdown/JS/types/F.md";
-
-//const lib = [JS1,JS2];
-
-export {
-  A,B,C,D,E,F
-};
+/*
+ * @Description: 
+ * @Author: hezhijie
+ * @Date: 2020-07-18 15:16:23
+ * @LastEditors: hezhijie
+ * @LastEditTime: 2020-09-25 11:06:32
+ */
+import Vue from "vue";
+const requireComponent = require.context(
+  // 找到components文件夹下以.vue命名的文件
+  "../markdown/JS",
+  true,
+  /\.md$/
+);
+requireComponent.keys().forEach(fileName => {
+  const componentConfig = requireComponent(fileName);
+  console.log(fileName);
+  // 因为得到的filename格式是: './button-sc.vue', 所以这里我们去掉头和尾，只保留真正的文件名
+  //const componentName = "JS_" + fileName.replace(/^\.\//, "").replace(/\.\w+$/, "");
+  const componentName = "JS_" + fileName.split("/")[2].replace(/\.\w+$/, "");
+  Vue.component(componentName, componentConfig.default || componentConfig);
+});
